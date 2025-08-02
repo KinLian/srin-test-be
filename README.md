@@ -39,3 +39,9 @@ fastapi dev main.py
 ```
 
 - BE should be running on http://127.0.0.1:8000
+
+## Commands Available (after running venv)
+- Run program : `fastapi dev main.py`
+- Install packages : `pip install -r requirements.txt`
+- Run pytest test (all) : `pytest`
+
