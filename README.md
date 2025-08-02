@@ -5,6 +5,7 @@
 - FastAPI
 - Pydantic
 - pytest
+- Supabase
 
 ## Setup
 
@@ -44,4 +45,14 @@ fastapi dev main.py
 - Run program : `fastapi dev main.py`
 - Install packages : `pip install -r requirements.txt`
 - Run pytest test (all) : `pytest`
+
+## App Directory
+- database.py ---------------- Init database (supabase)
+- main.py --------------------- Main app
+- api/ --------------------------- API for CRUD 
+  - main.py --------------- CRUD Functions
+- test/ -------------------------- Unit Testing
+  - test_main.py --------- Test Function for main.py
+  - api ---------------------- Test Function for api/ folder
+    - test_main.py --- Test Function for api/main.py
 
