@@ -1,7 +1,6 @@
 import uuid
-from typing import Union
 
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from database import supabase_phone
@@ -35,11 +34,10 @@ def get_all_phones():
 
 @app.get("/phone/{item_id}")
 def get_single_phone(item_id: str):
-    print(item_id)
     res_phone_datas = supabase_phone.select().eq("id", item_id).execute()
     phone_datas = res_phone_datas.data
     single_phone_data = phone_datas[0] if len(phone_datas) == 1 else None
-    
+
     return {"data": single_phone_data}
 
 
@@ -55,8 +53,9 @@ def add_phone(item: Phone):
 
 
 @app.put("/phone/{item_id}")
-def update_phone(item_id: str, item: Phone):
+def update_phone(item_id: str, item:Phone):
     item_dict: Phone = item.model_dump()
+    item_dict['id'] = item_id
 
     res_phone_data = supabase_phone.update(
         item_dict).eq("id", item_id).execute()
