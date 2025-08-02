@@ -34,15 +34,17 @@ def get_all_phones():
 
 
 @app.get("/phone/{item_id}")
-def get_single_phone(item_id: int):
-    res_phone_data = supabase_phone.select("*").eq("id", item_id).execute()
-    phone_data = res_phone_data.data
-
-    return {"data": phone_data}
+def get_single_phone(item_id: str):
+    print(item_id)
+    res_phone_datas = supabase_phone.select().eq("id", item_id).execute()
+    phone_datas = res_phone_datas.data
+    single_phone_data = phone_datas[0] if len(phone_datas) == 1 else None
+    
+    return {"data": single_phone_data}
 
 
 @app.post("/phone")
-async def add_phone(item: Phone):
+def add_phone(item: Phone):
     item_dict: Phone = item.model_dump()
     item_dict['id'] = str(uuid.uuid4())
 
@@ -53,17 +55,18 @@ async def add_phone(item: Phone):
 
 
 @app.put("/phone/{item_id}")
-def update_phone(item_id: int, item: Phone):
+def update_phone(item_id: str, item: Phone):
     item_dict: Phone = item.model_dump()
 
-    res_phone_data = supabase_phone.update(item_dict).eq("id", item_id).execute()
+    res_phone_data = supabase_phone.update(
+        item_dict).eq("id", item_id).execute()
     phone_data = res_phone_data.data
 
     return {"data": phone_data}
 
 
 @app.delete("/phone/{item_id}")
-def delete_phone(item_id: int):
+def delete_phone(item_id: str):
     res_phone_data = supabase_phone.delete().eq("id", item_id).execute()
     phone_data = res_phone_data.data
 
