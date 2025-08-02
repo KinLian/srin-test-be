@@ -1,9 +1,16 @@
 # Phone Catalogue (SRIN Test - Backend)
 
+## Tech Stack
+- Python 3.9
+- FastAPI
+- Pydantic
+- pytest
+
 ## Setup
 
 - Clone this repo
-- Add virtual environment
+- Move to this project directory in the terminal
+- Add Python Virtual Environment
 
 ```
 python -m venv .venv
@@ -12,7 +19,7 @@ python -m venv .venv
 - Run Virtual Environment (Windows)
   - PowerShell : `.\myenv\Scripts\activate.ps1`
   - Bash : `.\myenv\Scripts\activate.bat`
-- Install packages needed
+- Install all the packages needed
 
 ```
 pip install -r requirements.txt
