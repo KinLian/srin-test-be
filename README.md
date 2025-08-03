@@ -1,6 +1,7 @@
 # Phone Catalogue (SRIN Test - Backend)
 
 ## Tech Stack
+
 - Python 3.9
 - FastAPI
 - Pydantic
@@ -30,29 +31,31 @@ pip install -r requirements.txt
 
 ```
 $env:SUPABASE_URL="https://trehxrwuvxfdofrkqhxy.supabase.co"
-$env:SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJpc3MiOiJzdXBhYmFzZSIsIJlZiI6InRyZWh4cnd1dnhmZG9mcmtxaHh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwNjQyMDYsImVcCI6MjA2OTY0MDIwNn0.svmiirRPk3vCzqRpAbiJ-92DLYLLfxNwXxg7EFPIz1I"
+$env:SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyZWh4cnd1dnhmZG9mcmtxaHh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwNjQyMDYsImV4cCI6MjA2OTY0MDIwNn0.svmiirRPk3vCzqRpAbiJ-92DLYLLfxNwXxg7EFPIz1I"
 ```
 
 - Run it locally (windows)
 
 ```
-fastapi dev main.py
+fastapi dev app/main.py
 ```
 
 - BE should be running on http://127.0.0.1:8000
 
 ## Commands Available (after running venv)
-- Run program : `fastapi dev main.py`
+
+- Run program : `fastapi dev app/main.py`
 - Install packages : `pip install -r requirements.txt`
 - Run pytest test (all) : `pytest`
 
 ## App Directory
-- database.py ---------------- Init database (supabase)
-- main.py --------------------- Main app
-- api/ --------------------------- API for CRUD 
-  - main.py --------------- CRUD Functions
-- test/ -------------------------- Unit Testing
-  - test_main.py --------- Test Function for main.py
-  - api ---------------------- Test Function for api/ folder
-    - test_main.py --- Test Function for api/main.py
 
+- app/ ------------------------------- Application file
+  - database.py --------------- Init database (supabase)
+  - main.py --------------------- Main app
+  - api/ --------------------------- API for CRUD
+    - main.py --------------- CRUD Functions
+  - test/ -------------------------- Unit Testing
+    - test_main.py --------- Test Function for main.py
+    - api ---------------------- Test Function for api/ folder
+      - test_main.py --- Test Function for api/main.py

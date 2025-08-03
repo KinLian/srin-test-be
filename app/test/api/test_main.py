@@ -2,15 +2,15 @@ import uuid
 from fastapi.testclient import TestClient
 from unittest.mock import Mock, patch
 
-from main import app
-from models.phone import Phone
+from app.main import app
+from app.models.phone import Phone
 
 client = TestClient(app)
 
 def test_get_all_phones():
     mock_supabase_client = Mock()
 
-    with patch('api.main.supabase_phone', return_value=mock_supabase_client):
+    with patch('app.api.main.supabase_phone', return_value=mock_supabase_client):
         response = client.get('/phone')
 
         # Verify that the mocked methods were called
@@ -25,7 +25,7 @@ def test_get_single_phone():
         error=None
     )
 
-    with patch('api.main.supabase_phone', return_value=mock_supabase_client):
+    with patch('app.api.main.supabase_phone', return_value=mock_supabase_client):
         response = client.get('/phone/0')
 
         # Verify that the mocked methods were called
@@ -40,7 +40,7 @@ def test_add_phone():
     dummy_phone = Phone(id=str(uuid.uuid4()), model="MODEL", price="",
                         processor="", ram="", battery="", display="", camera="", card="", os="")
 
-    with patch('api.main.supabase_phone', return_value=mock_supabase_client):
+    with patch('app.api.main.supabase_phone', return_value=mock_supabase_client):
         response = client.post('/phone', json=dummy_phone.model_dump_json())
 
         # Verify that the mocked methods were called
@@ -53,7 +53,7 @@ def test_update_phone():
     dummy_phone = Phone(id=str(uuid.uuid4()), model="MODEL", price="",
                         processor="", ram="", battery="", display="", camera="", card="", os="")
 
-    with patch('api.main.supabase_phone', return_value=mock_supabase_client):
+    with patch('app.api.main.supabase_phone', return_value=mock_supabase_client):
         response = client.put('/phone/0', json=dummy_phone.model_dump_json())
 
         # Verify that the mocked methods were called
@@ -66,7 +66,7 @@ def test_update_phone():
 def test_delete_phone():
     mock_supabase_client = Mock()
 
-    with patch('api.main.supabase_phone', return_value=mock_supabase_client):
+    with patch('app.api.main.supabase_phone', return_value=mock_supabase_client):
         response = client.delete('/phone/0')
 
         # Verify that the mocked methods were called

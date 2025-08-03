@@ -1,7 +1,7 @@
 import uuid
 
-from database import supabase_phone
-from models.phone import Phone
+from app.database import supabase_phone
+from app.models.phone import Phone
 from fastapi import APIRouter
 
 router = APIRouter()
