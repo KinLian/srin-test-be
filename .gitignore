@@ -1,2 +1,3 @@
 __pycache__
 .venv
+.wsl_venv
