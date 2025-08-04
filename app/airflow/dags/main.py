@@ -62,7 +62,6 @@ with DAG(
         python_callable=create
     )
 
-    # t1
     t2 = PythonOperator(
         task_id="convert_to_csv",
         python_callable=convert_to_csv
