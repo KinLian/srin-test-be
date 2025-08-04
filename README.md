@@ -21,7 +21,7 @@ python -m venv .venv
 
 - Run Virtual Environment
   - PowerShell : `.venv\Scripts\activate.ps1`
-  - Bash : `.venv\Scripts\activate.bat`
+  - CMD : `.venv\Scripts\activate.bat`
   - Linux, macOS, WSL : `source .venv/bin/activate`
 - Install all the packages needed
 
@@ -30,6 +30,7 @@ pip install -r requirements.txt
 ```
 
 - Add .env to the venv **Always do it after starting the Virtual Environment** (showed only for test purposes, do not shared your .env publicly)
+  - PowerShell :
 
 ```
 $env:SUPABASE_URL="https://trehxrwuvxfdofrkqhxy.supabase.co"
